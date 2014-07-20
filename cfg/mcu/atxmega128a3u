@@ -1,0 +1,22 @@
+# JAMS
+# (c) 2013 Justin Gottula
+# The source code of this project is distributed under the terms of the
+# simplified BSD license. See the LICENSE file for details.
+# 
+# microcontroller configuration for atxmega128a3u
+
+
+MCU="atxmega128a3u"
+
+CPU_KHZ="32000"
+
+
+AVRDUDE_PART=(x128a3)
+
+AVRDUDE_FUSE0="0xff"
+AVRDUDE_FUSE1="0x00"
+AVRDUDE_FUSE2="0xfd"
+# FUSE3 doesn't exist
+AVRDUDE_FUSE4="0xf2"
+AVRDUDE_FUSE5="0xe2"
+AVRDUDE_LOCK="0xff"

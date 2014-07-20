@@ -1,0 +1,13 @@
+# JAMS
+# (c) 2013 Justin Gottula
+# The source code of this project is distributed under the terms of the
+# simplified BSD license. See the LICENSE file for details.
+# 
+# progrmmer configuration for dragon_pdi
+
+
+AVRDUDE_PROG=(dragon_pdi)
+AVRDUDE_PORT=(usb)
+AVRDUDE_BITCLOCK=()
+AVRDUDE_BAUDRATE=()
+AVRDUDE_BANGDELAY=()
