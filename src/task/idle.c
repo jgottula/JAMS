@@ -5,20 +5,11 @@
  */
 
 
-#ifndef JAMS_DEBUG_BREAK_H
-#define JAMS_DEBUG_BREAK_H
+#include "task/idle.h"
 
 
-#include "std.h"
-
-
-#define BREAK() \
-	asm volatile ( \
-		"\nbreak" \
-		: \
-		: \
-		: "memory" \
-	)
-
-
-#endif
+void idle(void) {
+	for ( ;; );
+	
+	// TODO: continually attempt to go to power saving mode
+}

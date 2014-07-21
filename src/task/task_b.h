@@ -5,20 +5,14 @@
  */
 
 
-#ifndef JAMS_DEBUG_BREAK_H
-#define JAMS_DEBUG_BREAK_H
+#ifndef JAMS_TASK_TASK_B_H
+#define JAMS_TASK_TASK_B_H
 
 
 #include "std.h"
 
 
-#define BREAK() \
-	asm volatile ( \
-		"\nbreak" \
-		: \
-		: \
-		: "memory" \
-	)
+void task_b(void);
 
 
 #endif

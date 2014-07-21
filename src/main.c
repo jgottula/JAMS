@@ -22,8 +22,8 @@ int main(void) {
 	stdfile_open();
 	
 	
+	rtos_init();
 	
 	
-	
-	die();
+	idle();
 }

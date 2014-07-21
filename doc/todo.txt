@@ -1,0 +1,35 @@
+JAMS
+todo list
+
+
+scheduler:
+- need per-task status (RUNNABLE, BLOCKED, IDLE)
+- only schedule idle task if all other tasks are IDLE
+- per-task priority
+- smartly switch to tasks that are blocking other tasks
+
+task switch:
+- count clock cycles/time needed for register save/restore
+- see if anything is faster than 8-bit push/pop
+- only save/restore the registers needed for the scheduler to run; then, if we
+  are not going to run the same task again, save/restore everything
+- check the stack pointer against the stack space for the current task; if we
+  are outside where we should be, raise some kind of stack overrun error
+
+system tick:
+- increase rate (probably use regular timer; check if on during power save)
+
+functionality/api:
+- implement: fork, exit, new task, kill task, sleep
+- sleep: set to IDLE status; after a timer, go back to RUNNABLE
+- mutexes (registration etc)
+- instead of blocking, schedule another task to free up the blockage
+- implement stats so we can remake top (task status, % cpu, % idle)
+
+tasks:
+- don't use CLI/ATOMIC_BLOCK; instead, use mutexes and/or individual interrupt
+  enable bits (i.e. in uart functions, disable only the needed uart interrupts
+  and the IF will trigger the ISR right after they are re-enabled)
+
+interrupts:
+- find situations where we can safely enable nested interrupts
