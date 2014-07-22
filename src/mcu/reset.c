@@ -6,11 +6,11 @@
 
 
 #include "mcu/reset.h"
-//#include "dev/uart/uart.h"
+#include "dev/uart/uart.h"
 
 
 noreturn void reset(void) {
-	//uart_flush();
+	uart_flush();
 	
 	cli();
 	
