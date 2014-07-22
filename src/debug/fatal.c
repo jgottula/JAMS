@@ -6,7 +6,7 @@
 
 
 #include "debug/fatal.h"
-//#include "dev/uart/uart.h"
+#include "dev/uart/uart.h"
 
 
 static noreturn void _fatal_common(const char *str, bool flash) {
@@ -16,9 +16,9 @@ static noreturn void _fatal_common(const char *str, bool flash) {
 		printf_P(PSTR("\nFATAL:\n%s\n"), str);
 	}
 	
-	//uart_flush();
-//#warning REMOVE delay in _fatal_common when uart_flush is fixed
-	//_delay_ms(50);
+	uart_flush();
+#warning REMOVE delay in _fatal_common when uart_flush is fixed
+	_delay_ms(50);
 	
 #if FATAL_BREAK
 	BREAK();
