@@ -11,7 +11,7 @@
 ISR(OSC_OSCF_vect) {
 	/* oscillator failure */
 	
-	//for (;;);
+	for (;;);
 }
 
 
