@@ -6,7 +6,7 @@
 
 
 #include "io/stdfile.h"
-//#include "dev/uart/uart.h"
+#include "dev/uart/uart.h"
 
 
 /* write to ftdi uart */
@@ -15,15 +15,15 @@ static int _put_ftdi(char c, FILE *f) {
 	(void)f;
 	
 	/* convert LF to CRLF */
-	/*if (c == '\n' && !uart_write('\r')) {
+	if (c == '\n' && !uart_write('\r')) {
 		return _FDEV_ERR;
 	}
 	
 	if (uart_write(c)) {
 		return 0;
-	} else {*/
+	} else {
 		return _FDEV_ERR;
-	/*}*/
+	}
 }
 
 /* read from ftdi uart */
@@ -32,11 +32,11 @@ static int _get_ftdi(FILE *f) {
 	(void)f;
 	
 	char c;
-	/*if (uart_read(&c)) {
+	if (uart_read(&c)) {
 		return (int)c;
-	} else {*/
+	} else {
 		return _FDEV_ERR;
-	/*}*/
+	}
 }
 
 
