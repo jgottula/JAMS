@@ -6,11 +6,11 @@
 
 
 #include "mcu/die.h"
-//#include "dev/uart/uart.h"
+#include "dev/uart/uart.h"
 
 
 noreturn void die(void) {
-	//uart_flush();
+	uart_flush();
 	
 	cli();
 	
