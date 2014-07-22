@@ -62,9 +62,8 @@ LIBS=()
 
 CFLAGS_STD=(-std=gnu11)
 CFLAGS_CPU=("-mmcu=$MCU" -fpack-struct -funsigned-bitfields)
-CFLAGS_DEBUG=(-ggdb -fno-omit-frame-pointer -fvar-tracking-assignments \
-	-fno-inline)
-CFLAGS_OPT=(-O1 -mrelax -mstrict-X -fmerge-constants -ffast-math \
+CFLAGS_DEBUG=(-ggdb -fvar-tracking-assignments -fno-inline)
+CFLAGS_OPT=(-Os -mrelax -mstrict-X -fmerge-constants -ffast-math \
 	-fno-jump-tables -fshort-enums -Wl,--gc-sections)
 CFLAGS_WARN=(-Wall -Wextra -Wno-unused-function -fno-diagnostics-show-caret)
 CFLAGS_ETC=()
