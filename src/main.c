@@ -32,7 +32,7 @@ int main(void) {
 	// things like printf won't work out of the box :(
 	
 	
-	fputs("\nHello world!\n", stdout);
+	fputs("\nwelcome to AVR JAMS!!\n", stdout);
 	
 	
 	mutex_create(&test_mutex);
