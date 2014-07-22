@@ -6,9 +6,15 @@
 
 
 #include "std.h"
-//#include "dev/uart/uart.h"
+#include "dev/uart/uart.h"
 #include "mcu/clock.h"
 #include "mcu/pmic.h"
+#include "rtos/mutex.h"
+#include "rtos/rtos.h"
+#include "task/idle.h"
+
+
+mutex test_mutex;
 
 
 int main(void) {
@@ -18,8 +24,18 @@ int main(void) {
 	
 	pmic_init();
 	
-	//uart_init();
+	uart_init();
 	stdfile_open();
+	
+	
+	// TODO: look up avr-libc page on thread safety
+	// things like printf won't work out of the box :(
+	
+	
+	fputs("\nHello world!\n", stdout);
+	
+	
+	mutex_create(&test_mutex);
 	
 	
 	rtos_init();
