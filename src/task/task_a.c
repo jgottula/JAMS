@@ -27,6 +27,6 @@ void task_a(void) {
 		
 		mutex_release(&test_mutex);
 		
-		_delay_ms(250);
+		_delay_ms(300);
 	}
 }
