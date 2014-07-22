@@ -45,3 +45,7 @@ void mcu_use_pll(void) {
 	CPU_CCP = CCP_IOREG_gc;
 	CLK.CTRL = CLK_SCLKSEL_PLL_gc;
 }
+
+
+#warning TODO: enable PLLFDEN and XOSCFDEN in XOSCFAIL
+#warning TODO: in OSC_OSCF_vect, grab XOSCFAIL into a register, then BREAK
