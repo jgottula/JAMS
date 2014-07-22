@@ -6,10 +6,27 @@
 
 
 #include "task/task_b.h"
+#include "dev/uart/uart.h"
+#include "rtos/mutex.h"
+
+
+extern mutex test_mutex;
 
 
 void task_b(void) {
-	for ( ;; );
+	const char s[] = "BBBbbb";
 	
-	
+	for ( ;; ) {
+		mutex_acquire(&test_mutex);
+		
+		const char *p = s;
+		while (*p != '\0') {
+			uart_write(*(p++));
+			_delay_ms(100);
+		}
+		
+		mutex_release(&test_mutex);
+		
+		_delay_ms(300);
+	}
 }

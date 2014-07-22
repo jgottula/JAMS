@@ -6,19 +6,27 @@
 
 
 #include "task/task_a.h"
+#include "dev/uart/uart.h"
+#include "rtos/mutex.h"
+
+
+extern mutex test_mutex;
 
 
 void task_a(void) {
-	for ( ;; );
+	const char s[] = "AAAaaa";
 	
-	// set the scheduler to run every 1000 ms
-	// task A and B will both do the following:
-	//
-	// loop forever:
-	//  acquire uart mutex
-	//  for each character in 'Hello from Task A/B!\n':
-	//   send the character
-	//   _delay_ms(100)
-	//  release uart mutex
-	//  _delay_ms(1000)
+	for ( ;; ) {
+		mutex_acquire(&test_mutex);
+		
+		const char *p = s;
+		while (*p != '\0') {
+			uart_write(*(p++));
+			_delay_ms(100);
+		}
+		
+		mutex_release(&test_mutex);
+		
+		_delay_ms(300);
+	}
 }
