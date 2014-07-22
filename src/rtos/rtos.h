@@ -19,9 +19,26 @@ enum {
 	
 	TID_IDLE = 0,
 	
-	TASK_STACK_SIZE  = 0x80,
+	TASK_STACK_SIZE = 0x80,
 };
 
+
+struct task_context {
+	uint8_t r1_to_31[31];
+	
+	uint8_t rampd;
+	uint8_t rampx;
+	uint8_t rampy;
+	uint8_t rampz;
+	
+	uint8_t sreg;
+	
+	uint8_t r0;
+	
+	uint8_t pc_ex;
+	uint8_t pc_hi;
+	uint8_t pc_lo;
+};
 
 struct task {
 	uint8_t status;
